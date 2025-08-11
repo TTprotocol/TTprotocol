@@ -38,7 +38,7 @@
     <td>
       <a href="https://git.io/streak-stats">
         <img
-          src="https://streak-stats.demolab.com?user=wnsdud7941&hide_border=true"
+          src="https://streak-stats.demolab.com?user=TTprotocol&hide_border=true"
           width="420"
           alt="GitHub Streak"
         />
