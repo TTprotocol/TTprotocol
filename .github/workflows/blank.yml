@@ -15,12 +15,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          token: ${{ secrets.TOKEN }}  # 명시
+          # token: ${{ secrets.TOKEN }}  # 명시
           persist-credentials: true
 
       - uses: yoshi389111/github-profile-3d-contrib@0.7.1
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          # GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           USERNAME: ${{ github.repository_owner }}
 
       - name: Commit & Push
@@ -30,3 +31,8 @@ jobs:
           git add -A
           git commit -m "generated [skip ci]" || echo "no changes"
           git push origin HEAD:main
+
+      - name: Debug git auth
+        run: |
+          git remote -v
+          git config -l | grep -iE 'credential|extraheader|url\.https://github\.com' || true
